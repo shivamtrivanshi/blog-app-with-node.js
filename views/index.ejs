@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+
+<div class="ui vertical masthead center aligned segment">
+    <div class="ui text container">
+        <h1 class="ui inverted header">
+        Imagine-Thought
+        </h1>
+        <h2>Do whatever you want when you want to.</h2>
+        <a href="/blogs/new" class="ui huge primary button">Get Started</a>
+    </div>
+</div>
+
+<div class="ui main container">
+    <div class="ui huge header">
+        <h1>Welcome to my blog</h1>
+    </div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach(function(blog){ %>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= blog.image %>" alt="img">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+                        <div class="meta">
+                            <span><%= blog.created.toDateString() %></span>
+                        </div>
+                        <div class="description">
+                            <h4><%- blog.body.substring(0, 80) %>...</h4>
+                        </div>
+                        <div class="extra">
+                            <a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">Show More</a>
+                        </div>
+                    </div>   
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
