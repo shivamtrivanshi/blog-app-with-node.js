@@ -110,6 +110,7 @@ app.delete("/blogs/:id", function(req, res){
             res.redirect("/blogs");
         }
     });
+    
 });
 
 app.listen(3000, function(){
